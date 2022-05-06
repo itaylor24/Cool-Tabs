@@ -6,7 +6,7 @@ class CoolTab extends HTMLElement{
         this.shadowRoot.innerHTML = `
             <style>
 
-                @import url("./cool-tabs-css.css"); 
+                @import url("./src/cool-tabs-css.css"); 
             
             </style>
             <div class="cooltabs" part="cool-tab">
@@ -115,7 +115,7 @@ class CoolTabItem extends HTMLElement{
         const shadow = this.attachShadow({mode: 'open'}); 
         this.shadowRoot.innerHTML =`
             <style>
-                @import url("./cool-tabs-css.css"); 
+                @import url("./src/cool-tabs-css.css"); 
             </style>
             <div class="tabwrapper" part="tab-item">
                 <div class="tablabelwrapper" ><slot></slot></div>
@@ -220,7 +220,7 @@ class CoolTabContent extends HTMLElement{
         this.shadowRoot.innerHTML=`
         <style>
         
-           @import url("./cool-tabs-css.css"); 
+           @import url("./src/cool-tabs-css.css"); 
         </style>
         <div part="tab-content"><slot></slot></div>
         `
