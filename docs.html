@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cool Tabs Documentation</title>
+    <link rel="stylesheet" href="writeup.css">
+</head>
+<body>
+    <header><h1>Cool Tabs Documentation</h1></header>
+
+    <main>
+
+        <section id="Overview">
+            <article>
+                <h2>Overview</h2>
+                <p>
+
+                    Cool Tabs is a web component that makes tabs easy. 
+
+                    
+                    Cool Tabs has three modes: Plain, Block, and Underline. 
+                    Tabs can also be oriented to the left or right.
+
+                </p>
+            </article>
+            
+        </section>
+
+        <section id="HMTL">
+            <article>
+                <h2>HTML</h2>
+
+                <p>
+                    Cool Tabs consists of three custom elements: cool-tab, 
+                    cool-tab-item, and cool-tab-content. cool-tab is the main custom element,
+                    and cool-tab-item and cool-tab-content are its child elements. 
+                </p>
+
+            </article>
+
+            <ul>
+                <li>
+                    <details >
+                        <summary>
+                            Cool-Tab
+                        </summary>
+                        <ul>
+                            <li>
+                                <h4>Properties</h4>
+                                <ul>
+                                    <li>
+                                        <h4>Type</h4>
+                                        <p>
+                                            A cool tab can have three types: "plain", "block", or "underline" 
+                                            which change the type of tab item displayed. The default type 
+                                            is "plain." Any other value given to the type attribute other than 
+                                            the listed three will change to plain. 
+                                            
+                                            Although the tab-items 
+                                            have classes that mirror cool-tab type, they will always be the 
+                                            same as the parent cool-tab. 
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <h4>Side</h4>
+                                        <p>
+                                            A cool tab can have can be on one of two sides: "left" or "right". 
+                                            This property changes the orientation of the tabs. 
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <h4>
+                                            Select
+                                        </h4>
+                                        <p>
+
+                                            The select property determines which tab's content to display. It 
+                                            takes a number which corresponds to the value of the tab item to 
+                                            display content for. Only one tab should be selected at a time
+                                            
+                                        </p>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <h4>Children</h4>
+                                <p>
+                                    The children of a cool-tab should be cool-tab-item and cool-tab-content elements
+                                    arranged like below: 
+                                </p>
+                            </li>
+                        </ul>
+                    </article>
+                </li>
+            <li>
+            <details>
+                <summary>
+                    Cool-Tab-Item
+                </summary>
+                    <ul>
+                        <li>
+                        <h4>Properties</h4>
+                        
+                   <ul>
+                       <li>
+                           <h4>Live</h4>
+                           <p>
+                               Live is a boolean attribute that determines whether a 
+                               tab is selected. If a tab is live, its associated content 
+                               is displayed.
+                           </p>
+                        </li>
+                       <li>
+                           <h4>Frozen</h4>
+                           <p>
+                               Frozen is a boolean attribute that determines whether a tab 
+                               can be interacted with. Frozen tabs do not recieve pointer 
+                               events. 
+                           </p>
+                        </li>
+                        <li>
+                            <h4>Value</h4>
+
+                            <p>
+                                A tab's value links a tab to its cool-tab-content. 
+                                Each tab should have a unique value. Each tab-content 
+                                pair should have the same value. 
+                            </p>
+
+                        </li>
+                        </li>
+                        <li>
+                            <h4>Properties</h4>
+                            <p>
+                                
+                            </p>
+                        </li>
+                   </ul>
+                </ul>
+            </article>
+            </li>
+            <li>
+            <details >
+                <summary>
+                    Cool-Tab-Content
+                </summary>
+                <ul>
+                    <li>
+                        <h4>Properties</h4>
+                        <ul>
+                            <li>
+                                <h4>Value</h4>
+                                <p>
+
+                                    A tab content's value links it to its tab-item equivalent. 
+                                    Each tab should have a unique value. Each tab-content 
+                                    pair should have the same value.
+
+                                </p>
+                            </li>
+                            
+                        </ul>
+                    </li>
+                </ul>
+            </details>
+            </li>
+            </ul>
+        </section>
+
+        <section id="CSS">
+            <article>
+                <h2>CSS</h2>
+                <p>
+                    Cool Tabs have lots of custom properties because of the three types. 
+                    To add large amounts of customization, it is recommended to use the plain tab type. 
+                    Cool Tabs styles should be added via css file named 'cool-tabs-css.css'. 
+                </p>   
+            </article>
+
+            <ul>
+                <li>
+                    <details>
+                        <summary>
+                            cool-tabs-css.css
+                        </summary>
+                        <pre>
+                            <code>
+/*COOL-TABS*/
+:host{
+
+    --plain-cool-tabs-select-color: rgb(240, 191, 191); 
+    --plain-cool-tabs-hover-color: rgb(180, 120, 120);
+    --plain-cool-tabs-not-selected-color:  rgb(83,83,83); 
+    --plain-cool-tabs-frozen-color:rgb(165, 165, 165); 
+
+    --underline-cool-tabs-select-color: rgb(240, 191, 191); 
+    --underline-cool-tabs-hover-color: rgb(180, 120, 120);
+    --underline-cool-tabs-not-selected-color:rgb(83,83,83); 
+    --underline-cool-tabs-frozen-color: rgb(165, 165, 165); 
+    
+    --block-cool-tabs-select-bg-color: rgb(222, 155, 155); 
+    --block-cool-tabs-select-text-color: rgb(255, 255, 255); 
+    --block-cool-tabs-hover-bg-color: rgb(180, 120, 120);
+    --block-cool-tabs-hover-text-color: rgb(255, 255, 255); 
+    --block-cool-tabs-not-selected-bg-color: rgb(165, 165, 165); 
+    --block-cool-tabs-not-selected-text-color: rgb(0, 0, 0); 
+    --block-cool-tabs-frozen-bg-color:rgb(83, 83, 83); 
+    --block-cool-tabs-frozen-text-color: rgb(0, 0, 0);
+    --block-cool-tabs-select-glow-color: rgba(225, 173, 173,.5); 
+}
+
+.cooltabs{ 
+
+    background-color: var(--cool-tabs-bg-color); 
+    display:flex; 
+    justify-content:flex-start; 
+    align-items:center; 
+    width: 100%; 
+    height: fit-content;  
+    box-sizing: border-box; 
+    padding-bottom: 5px; 
+    border-bottom: 2px solid gray; 
+
+}
+
+.cooltabs.right{
+    justify-content: flex-end;
+    align-items: flex-end;   
+}
+
+/*TAB CONTENT*/
+
+.hidden{
+    display:none; 
+}
+.rightside::slotted(*){
+    width:fit-content; 
+    height:fit-content; 
+    float: right; 
+}
+.leftside::slotted(*){ 
+    width:fit-content; 
+    height:fit-content; 
+    float: left; 
+
+} 
+
+/*TAB ITEMS*/
+
+
+.tabwrapper{
+
+    /*margin: 2px; */
+    padding: .6em; 
+    width: fit-content; 
+    height: 100%; 
+    display:flex; 
+    justify-content: center;
+    align-items:center; 
+    position: relative; 
+    transition: .2s; 
+}
+
+.tabwrapper.selected{
+    pointer-events: none;
+}
+
+.tabwrapper:hover{
+    cursor: pointer; 
+    transition: .2s; 
+}
+
+.tabwrapper.frozen{
+    pointer-events: none;
+}
+
+.tabwrapper.plain{
+    color: var(--plain-cool-tabs-not-selected-color); 
+}
+
+.tabwrapper.plain.frozen,.tabwrapper.underline.frozen{
+    color: var(--plain-cool-tabs-frozen-color); 
+}
+
+.tabwrapper.underline{
+    color: var(--underline-cool-tabs-not-selected-color); 
+}
+
+.tabwrapper.block{
+    /*border-radius: 10px; */
+    background-color: var(--block-cool-tabs-not-selected-bg-color); 
+}
+
+.tabwrapper.block.frozen{
+    background-color: var(--block-cool-tabs-frozen-bg-color); 
+    color: var(--block-cool-tabs-text-color); 
+}
+
+.tabwrapper:hover.block {
+    background-color: var(--block-cool-tabs-hover-bg-color); 
+    color: var(--block-cool-tabs-hover-text-color);
+}
+
+.tabwrapper.selected.block{
+
+    z-index: 4; 
+    position: relative; 
+    background-color: var(--block-cool-tabs-select-bg-color); 
+    color: var(--block-cool-tabs-select-text-color);
+    box-shadow: 0px 0px .3em .15em var(--block-cool-tabs-select-glow-color); 
+
+}
+
+.tabwrapper:hover.plain{
+    color: var(--plain-cool-tabs-hover-color); 
+}
+.tabwrapper.selected.plain{
+    color: var(--plain-cool-tabs-select-color); 
+}
+
+ .tabwrapper.underline:after{
+    width: 0; 
+    content:""; 
+    height: 2px; 
+    bottom: -2px;   
+    position: absolute; 
+    background-color: var(--underline-cool-tabs-select-color); 
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+
+}
+
+.tabwrapper.underline.selected{
+    color: var(--underline-cool-tabs-select-color); 
+}
+.tabwrapper.underline:hover{
+    color: var(--underline-cool-tabs-hover-color); 
+}
+
+.tabwrapper.underline.selected:after{
+    color: var(--underline-cool-tabs-select-color);
+    width: 100%; 
+
+}
+                            </code>
+                        </pre>
+                    </details>
+                </li>
+                <li>
+                    <details>
+                        <summary>
+                            Custom Properies
+                        </summary>
+                        <ul>
+                            <li>
+                                <h4>
+                                    Properties for Cool Tab 
+                                </h4>
+                                <p class="pre"> 
+                                    --cool-tabs-bg-color: Color for background of all cool tabs 
+                                    Default: none 
+                                </p>
+                            </li>
+                            <li>
+                                <h4>Properties for Plain Tabs</h4>
+                                <p class="pre">
+                                    --plain-cool-tabs-select-color: Text color for selected plain tabs
+                                    Default: rgb(240, 191, 191);  
+                                    --plain-cool-tabs-hover-color: Text color from hovering over plain tabs  
+                                    Default: rgb(180, 120, 120);
+                                    --plain-cool-tabs-not-selected-color: Text color for not selected plain tabs
+                                    Default: rgb(83,83,83); 
+                                    --plain-cool-tabs-frozen-color:rgb(165, 165, 165): Text color for frozen plain tabs
+                                    Default: rgb(165, 165, 165); 
+                                </p>
+                            </li>
+                            <li>
+                                <h4>Properties for Underline Tabs</h4>
+                                <p class="pre"> 
+
+                                    --underline-cool-tabs-select-color: Text color for selected  underlined tabs
+                                    Default: rgb(240, 191, 191); 
+                                    --underline-cool-tabs-hover-color: Text color from hovering over underlined tabs  
+                                    Default: rgb(180, 120, 120);
+                                    --underline-cool-tabs-not-selected-color: Text color for not selected underlined tabs
+                                    Default: rgb(83,83,83); 
+                                    --underline-cool-tabs-frozen-color: Text color for frozen underlined tabs 
+                                    Default: rgb(165, 165, 165); 
+
+                                </p>
+                            </li>
+                            <li>
+                                <h4>Properties for Block Tabs</h4>
+                                <p class="pre">
+                                    --block-cool-tabs-select-bg-color: Background color for selected block tabs 
+                                    Default: rgb(222, 155, 155); 
+                                    --block-cool-tabs-select-text-color: Text color for selected block tabs 
+                                    Default: rgb(255, 255, 255); 
+                                    --block-cool-tabs-hover-bg-color: Background color for hovering over block tabs 
+                                    Default: rgb(180, 120, 120);
+                                    --block-cool-tabs-hover-text-color:  Text color from hovering over underlined tabs 
+                                    Default: rgb(255, 255, 255); 
+                                    --block-cool-tabs-not-selected-bg-color: Background color for not selected block tabs 
+                                    Default: rgb(165, 165, 165); 
+                                    --block-cool-tabs-not-selected-text-color: Text color for not selected block tabs
+                                    Default: rgb(0, 0, 0);
+                                    --block-cool-tabs-frozen-bg-color: Background color for frozen block tabs 
+                                    Default: rgb(83, 83, 83); 
+                                    --block-cool-tabs-frozen-text-color: Text color for frozen block tabs
+                                    Default:  rgb(0, 0, 0);
+                                    --block-cool-tabs-select-glow-color: Color for glow of block tabs. 
+                                    Default: rgba(225, 173, 173,.5); 
+                                </p>
+                            </li>
+                        </ul>
+                    </details>
+                    <ul>
+
+                    </ul>
+                </li>
+                <li>
+                <details open>
+                    <summary>
+                        Parts
+                    </summary>
+                    <ul>
+
+                        <li>    
+                            <h4>
+                                cool-tab
+                            </h4>
+                            <p>
+                                Part specifier for styling cool-tab elements 
+                            </p>
+                        </li>
+
+                        <li>
+                            <h4>
+                                tab-item
+                            </h4>
+                            <p>
+                                Part specifier for styling cool-tab-item elments 
+                            </p>
+                        </li>
+
+                        <li>
+                            <h4>
+                                tab-content
+                            </h4>
+                            <p>
+                                Part specifier for styling cool-tab-content
+                            </p>
+                        </li>
+
+                    </ul>
+                </details>
+                </li>
+            </ul>
+        </section>
+
+        <section id="JS">
+            
+            <h2>JS</h2>
+            <ul>
+                <li>
+                    <details open>
+                        <summary>
+                            Events
+                        </summary>
+                        <ul>
+                            <li>
+                                <h4>Selection</h4>
+                                <p class="pre">
+                                    Event fired when a tab is selected. 
+                                    Name: "coolTabSelection"
+                                </p>
+                            </li>
+                        </ul>
+                    </details>
+                </li>
+                <li>
+            <details>
+                <summary>
+                Code To Add To Your Document
+                </summary>
+                
+            <pre>
+                <code>
+                    class CoolTab extends HTMLElement{
+                        constructor(){
+                            super(); 
+                            const shadow = this.attachShadow({mode: 'open'}); 
+                    
+                            this.shadowRoot.innerHTML = `
+                                &ltstyle&gt
+                    
+                                    @import url("./cool-tabs-css.css"); 
+                                
+                                &lt/style&gt
+                                &ltdiv class="cooltabs" part="cool-tab"&gt
+                                    &ltslot name="tabs"&gt&lt/slot&gt
+                                &lt/div&gt
+                                &ltslot&gt
+                                &lt/slot&gt
+                            `   
+                        }
+                    
+                        #select; 
+                        #type; 
+                        #orientation =this.getAttribute('orientation'); 
+                        #side = this.getAttribute('side'); 
+                        
+                        get select() {
+                            return this.getAttribute('select');
+                        }
+                        
+                        set select(newValue) {
+                            this.setAttribute('select', newValue);
+                        }
+                    
+                        get orientation() {
+                            return this.getAttribute('orientation');
+                        }
+                        
+                        set orientation(newValue) {
+                            this.setAttribute('orientation', newValue);
+                        }
+                    
+                        get side() {
+                            return this.getAttribute('side');
+                        }
+                        
+                        set side(newValue) {
+                            this.setAttribute('side', newValue);
+                        }
+                    
+                        get type() {
+                            return this.getAttribute('type');
+                        }
+                        
+                        set type(newValue) {
+                            this.setAttribute('type', newValue);
+                        }
+                    
+                    
+                        static get observedAttributes() { return ["select","type","side","orientation"] }
+                    
+                        attributeChangedCallback(name, oldValue, newValue){
+                            if(name === "select"){
+                                this.#select = newValue; 
+                            }
+                            if(name === "type"){
+                                this.#type = newValue; 
+                            }
+                            if(name === "side"){
+                                this.#side = newValue; 
+                            }
+                            if(name === "orientation"){
+                                this.#orientation = newValue; 
+                            }
+                            this.#renderTabs();  
+                        }    
+                    
+                        connectedCallback(){
+                            if(!this.hasAttribute("type") || !["plain","underline","block"].includes(this.getAttribute("type"))){
+                                this.setAttribute("type","plain"); 
+                            }
+                            this.#renderTabs(); 
+                        }
+                    
+                        #renderTabs(){
+                            if(!this.hasAttribute("type") || !["plain","underline","block"].includes(this.getAttribute("type"))){
+                                this.setAttribute("type","plain"); 
+                            }
+                            this.shadowRoot.firstElementChild.nextElementSibling.setAttribute("class","cooltabs");
+                            
+                            let thisChildren = Array.from(this.children);  
+                    
+                            thisChildren.forEach(child=>{ 
+                                child.setAttribute("type",this.#type); 
+                                child.removeAttribute("selected"); 
+                            })
+                    
+                            let childToSelect = thisChildren.filter(child=>{
+                                return child.value === this.#select
+                            });  
+                            if (childToSelect[0]!= undefined){
+                                childToSelect[0].setAttribute("selected",''); 
+                            }
+                            
+                            this.shadowRoot.firstElementChild.nextElementSibling.classList.add(this.#orientation); 
+                            this.shadowRoot.firstElementChild.nextElementSibling.classList.add(this.#side);
+                    
+                        }
+                    }
+                    
+                    class CoolTabItem extends HTMLElement{
+                        constructor(){
+                            
+                            super(); 
+                            this.setAttribute("slot","tabs"); 
+                            const shadow = this.attachShadow({mode: 'open'}); 
+                            this.shadowRoot.innerHTML =`
+                                &ltstyle&gt
+                                    @import url("./cool-tabs-css.css"); 
+                                &lt/style&gt
+                                &ltdiv class="tabwrapper" part="tab-item"&gt
+                                    &ltdiv class="tablabelwrapper"&gt&ltslot&gt&lt/slot&gt&lt/div&gt
+                                &lt/div&gt
+                            `
+                            
+                        }
+                        #value = this.getAttribute('value'); 
+                        #selected = this.getAttribute("live"); 
+                        #type = this.getAttribute('type'); 
+                        #frozen = this.getAttribute('frozen'); 
+                    
+                        get value() {
+                            return this.getAttribute('value');
+                        }
+                        
+                        set value(newValue) {
+                            this.setAttribute('value', newValue);
+                        }
+                    
+                        get live(){
+                            return this.getAttribute("live"); 
+                        }
+                        set live(newValue){
+                            this.setAttribute("live",newValue); 
+                            
+                        }
+                    
+                        get frozen() {
+                            return this.getAttribute('frozen');
+                        }
+                        set frozen(newValue) {
+                            this.setAttribute('frozen', newValue);
+                        }
+                    
+                        static get observedAttributes() { return ["selected","type",'frozen'] }
+                    
+                        attributeChangedCallback(name, oldValue, newValue){
+                            if(name === "selected"){
+                                this.#selected = newValue; 
+                            }
+                            if(name === "type"){
+                                this.#type = newValue; 
+                            }
+                            if(name==="frozen"){
+                                this.#frozen = newValue; 
+                                if(newValue){
+                                    this.addEventListener("click",this.#selectTab); 
+                                }
+                            }
+                    
+                            this.#renderTab(); 
+                        }  
+                        
+                        connectedCallback(){
+                    
+                            if(this.hasAttribute('live')){
+                                this.parentElement.setAttribute("select",this.value); 
+                                this.#selected = true; 
+                            }
+                            if(!this.hasAttribute('frozen')){
+                                this.addEventListener("click",this.#selectTab)
+                            }
+                           
+                            this.#renderTab(); 
+                            
+                        }
+                    
+                        #renderTab(){
+                            this.shadowRoot.lastElementChild.setAttribute("class","tabwrapper"); 
+                    
+                            if(this.hasAttribute('selected')){
+                                this.shadowRoot.lastElementChild.classList.add("selected"); 
+                               
+                            }else{
+                                this.shadowRoot.lastElementChild.classList.remove("selected"); 
+                            }
+                    
+                            if (this.hasAttribute('frozen')){
+                                this.shadowRoot.lastElementChild.classList.add("frozen"); 
+                            }else{
+                                this.shadowRoot.lastElementChild.classList.remove("frozen");
+                            }
+                    
+                            if(this.hasAttribute("type")){
+                                this.shadowRoot.lastElementChild.classList.add(this.#type); 
+                            }
+                            
+                        }
+                        #selectTab(evt){
+                            let coolTabSelection = new CustomEvent('coolTabSelection'); 
+                            this.dispatchEvent(coolTabSelection);
+                          
+                            this.parentElement.setAttribute("select",this.value); 
+                        }
+                    }
+                    
+                    class CoolTabContent extends HTMLElement{
+                        constructor(){
+                            super(); 
+                            const shadow = this.attachShadow({mode: 'open'}); 
+                            this.shadowRoot.innerHTML=`
+                            &ltstyle&gt
+                            
+                               @import url("./cool-tabs-css.css"); 
+                            &lt/style&gt
+                            &ltdiv part="tab-content"&gt&ltslot&gt&lt/slot&gt&lt/div&gt
+                            `
+                        }
+                        #value; 
+                        get value() {
+                            return this.getAttribute('value');
+                        }
+                        set value(newValue) {
+                            this.setAttribute('value', newValue);
+                        }
+                        static get observedAttributes() { return ['value'] }
+                    
+                        attributeChangedCallback(name, oldValue, newValue){
+                            if(name === "value"){
+                                this.#value = newValue; 
+                            }
+                            this.#renderContent(); 
+                        }  
+                    
+                        connectedCallback(){
+                            this.#renderContent();
+                            let me = this; 
+                            const observerParent = new MutationObserver(mutations=>{
+                                mutations.forEach(function(mutation) {
+                                    if (mutation.type === "attributes") {
+                                        me.#renderContent(); 
+                                    }
+                                }); 
+                            });
+                           
+                            observerParent.observe(this.parentElement, {
+                                attributes: true //configure it to listen to attribute changes
+                            });
+                            
+                        }
+                        #renderContent(){
+                            this.shadowRoot.lastElementChild.setAttribute("class","");
+                            this.shadowRoot.lastElementChild.classList.add(this.parentElement.getAttribute("side")+'side');
+                         
+                            if(this.parentElement.getAttribute("select")!=this.#value){
+                                this.shadowRoot.lastElementChild.classList.add("hidden"); 
+                            }else{
+                                this.shadowRoot.lastElementChild.classList.remove("hidden"); 
+                            }
+                        }
+                    }
+                    
+                    customElements.define('cool-tab',CoolTab); 
+                    customElements.define('cool-tab-item',CoolTabItem); 
+                    customElements.define('cool-tab-content',CoolTabContent); 
+                </code>
+            </pre>
+            
+            </details>
+        </li></ul>
+        </section>
+
+    </main>
+
+</body>
+</html>
