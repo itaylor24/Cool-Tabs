@@ -521,16 +521,16 @@
                             const shadow = this.attachShadow({mode: 'open'}); 
                     
                             this.shadowRoot.innerHTML = `
-                                <style>
+                                &lt;style&gt;
                     
-                                    @import url("./cool-tabs-css.css"); 
+                                    @import url("./src/cool-tabs-css.css"); 
                                 
-                                </style>
-                                <div class="cooltabs" part="cool-tab">
-                                    <slot name="tabs"></slot>
-                                </div>
-                                <slot>
-                                </slot>
+                                &lt;/style&gt;
+                                &lt;div class="cooltabs" part="cool-tab"&gt;
+                                    &lt;slot name="tabs"&gt;&lt;/slot&gt;
+                                &lt;/div&gt;
+                                &lt;slot&gt;
+                                &lt;/slot&gt;
                             `   
                         }
                     
@@ -605,13 +605,13 @@
                             
                             let thisChildren = Array.from(this.children);  
                     
-                            thisChildren.forEach(child=>{ 
+                            thisChildren.forEach(child=&gt;{ 
                                 child.setAttribute("type",this.#type); 
                                 child.removeAttribute("selected"); 
                             })
                     
-                            let childToSelect = thisChildren.filter(child=>{
-                                return child.getAttribute('value') === this.#select &&!child.hasAttribute("frozen")
+                            let childToSelect = thisChildren.filter(child=&gt;{
+                                return child.getAttribute('value') === this.#select &amp;&amp;!child.hasAttribute("frozen")
                             });  
                     
                             if (childToSelect[0]!= undefined){
@@ -631,12 +631,12 @@
                             this.setAttribute("slot","tabs"); 
                             const shadow = this.attachShadow({mode: 'open'}); 
                             this.shadowRoot.innerHTML =`
-                                <style>
-                                    @import url("./cool-tabs-css.css"); 
-                                </style>
-                                <div class="tabwrapper" part="tab-item">
-                                    <div class="tablabelwrapper" ><slot></slot></div>
-                                </div>
+                                &lt;style&gt;
+                                    @import url("./src/cool-tabs-css.css"); 
+                                &lt;/style&gt;
+                                &lt;div class="tabwrapper" part="tab-item"&gt;
+                                    &lt;div class="tablabelwrapper" &gt;&lt;slot&gt;&lt;/slot&gt;&lt;/div&gt;
+                                &lt;/div&gt;
                             `
                             
                         }
@@ -735,11 +735,11 @@
                             super(); 
                             const shadow = this.attachShadow({mode: 'open'}); 
                             this.shadowRoot.innerHTML=`
-                            <style>
+                            &lt;style&gt;
                             
-                               @import url("./cool-tabs-css.css"); 
-                            </style>
-                            <div part="tab-content"><slot></slot></div>
+                               @import url("./src/cool-tabs-css.css"); 
+                            &lt;/style&gt;
+                            &lt;div part="tab-content"&gt;&lt;slot&gt;&lt;/slot&gt;&lt;/div&gt;
                             `
                         }
                         #value; 
@@ -761,7 +761,7 @@
                         connectedCallback(){
                             this.#renderContent();
                             let me = this; 
-                            const observerParent = new MutationObserver(mutations=>{
+                            const observerParent = new MutationObserver(mutations=&gt;{
                                 mutations.forEach(function(mutation) {
                                     if (mutation.type === "attributes") {
                                         me.#renderContent(); 
@@ -790,8 +790,6 @@
                     customElements.define('cool-tab',CoolTab); 
                     customElements.define('cool-tab-item',CoolTabItem); 
                     customElements.define('cool-tab-content',CoolTabContent); 
-                    
-                    
                 </code>
             </pre>
             
