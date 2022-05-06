@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./demo.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>Cool Tabs Demos</h1>
+    </header>
+    <main>
+        <h2>Default Cool Tab</h2>
+        <section>
+            
+            <article id="demo1">
+                
+                <cool-tab>
+
+                    <cool-tab-item value="1">
+                        Tab 1
+                    </cool-tab-item>
+                    <cool-tab-item value="2">
+                        Tab 2
+                    </cool-tab-item>
+                    <cool-tab-content value="1">
+                        Cool Content 1
+                    </cool-tab-content>
+                    <cool-tab-content value="2">
+                        Cool Content 2
+                    </cool-tab-content>
+
+                </cool-tab>
+        
+
+            </article>
+            <article>
+                Select one of the tabs to see content change. This is the default 
+                cool-tab element. 
+            </article>
+            <article>
+                <pre>
+                    <code>
+HTML: 
+
+&lt;cool-tab&gt;
+
+    &lt;cool-tab-item value="1"&gt;
+        Tab 1
+    &lt;/cool-tab-item&gt;
+    &lt;cool-tab-item value="2"&gt;
+        Tab 2
+    &lt;/cool-tab-item&gt;
+    &lt;cool-tab-content value="1"&gt;
+        Cool Content 1
+    &lt;/cool-tab-content&gt;
+    &lt;cool-tab-content value="2"&gt;
+        Cool Content 2
+    &lt;/cool-tab-content&gt;
+
+&lt;/cool-tab&gt;
+                    </code>
+                </pre>
+            </article>
+        </section>
+        <h2>
+            Selecting Cool Tabs
+        </h2>
+        <section>
+            
+        <article id="demo2">
+
+            <cool-tab select="1">
+
+                <cool-tab-item value="1">
+                    Tab 1
+                </cool-tab-item>
+                <cool-tab-item value="2">
+                    Tab 2
+                </cool-tab-item>
+                <cool-tab-content value="1">
+                    Cool Content 1
+                </cool-tab-content>
+                <cool-tab-content value="2">
+                    Cool Content 2
+                </cool-tab-content>
+
+            </cool-tab>
+
+        </article>
+        <article>
+            Tabs can be pre-selected by adding the attribute select with a value equal to the corresponding value
+            of the tab-item. 
+        </article>
+        <article>
+            <pre>
+                <code>
+HTML: 
+
+&lt;cool-tab <span>select="1"</span>&gt;
+
+    &lt;cool-tab-item value="1"&gt;
+        Tab 1
+    &lt;/cool-tab-item&gt;
+    &lt;cool-tab-item value="2"&gt;
+        Tab 2
+    &lt;/cool-tab-item&gt;
+    &lt;cool-tab-content value="1"&gt;
+        Cool Content 1
+    &lt;/cool-tab-content&gt;
+    &lt;cool-tab-content value="2"&gt;
+        Cool Content 2
+    &lt;/cool-tab-content&gt;
+
+&lt;/cool-tab&gt;
+                </code>
+            </pre>
+        </article>
+    </section> 
+    <h2>
+        Cool Tab Orientation
+    </h2>
+    <section> 
+        <article id="demo3">
+            
+            <cool-tab side="right">
+
+                <cool-tab-item value="1">
+                    Tab 1
+                </cool-tab-item>
+                <cool-tab-item value="2">
+                    Tab 2
+                </cool-tab-item>
+                <cool-tab-content value="1">
+                    Cool Content 1
+                </cool-tab-content>
+                <cool-tab-content value="2">
+                    Cool Content 2
+                </cool-tab-content>
+
+            </cool-tab>
+        </article >
+        
+        <article>
+            Tabs can be displayed on the right as well. Adding the attribute side with a value of right to 
+            cool-tab changes the orienation of the tabs 
+        </article>
+        <article>
+            <pre>
+                <code>
+HTML: 
+
+&lt;cool-tab <span>side="right"</span>&gt;
+
+    &lt;cool-tab-item value="1"&gt;
+        Tab 1
+    &lt;/cool-tab-item&gt;
+    &lt;cool-tab-item value="2"&gt;
+        Tab 2
+    &lt;/cool-tab-item&gt;
+    &lt;cool-tab-content value="1"&gt;
+        Cool Content 1
+    &lt;/cool-tab-content&gt;
+    &lt;cool-tab-content value="2"&gt;
+        Cool Content 2
+    &lt;/cool-tab-content&gt;
+
+&lt;/cool-tab&gt;
+                </code>
+            </pre>
+        </article>
+    </section>
+    <h2>
+        Cool Tab Disabling
+    </h2>
+    <section>
+        
+        <article id="demo5">
+            <cool-tab>
+            <cool-tab-item value="1">
+                Tab 1
+            </cool-tab-item>
+            <cool-tab-item value="2" frozen>
+                Tab 2
+            </cool-tab-item>
+            <cool-tab-content value="1">
+                Cool Content 1
+            </cool-tab-content>
+            <cool-tab-content value="2">
+                Cool Content 2
+            </cool-tab-content>
+            </cool-tab>
+        </article>
+        <article>
+            Tabs can be disabled by adding the frozen boolean attribute to the corresponding tab item.
+            Disabled tabs cannot be selected.  
+        </article>
+        <article>
+            <pre>
+                <code>
+HTML: 
+
+&lt;cool-tab&gt;
+
+    &lt;cool-tab-item value="1"&gt;
+        Tab 1
+    &lt;/cool-tab-item&gt;
+    &lt;cool-tab-item value="2" <span>frozen</span>&gt;
+        Tab 2
+    &lt;/cool-tab-item&gt;
+    &lt;cool-tab-content value="1"&gt;
+        Cool Content 1
+    &lt;/cool-tab-content&gt;
+    &lt;cool-tab-content value="2"&gt;
+        Cool Content 2
+    &lt;/cool-tab-content&gt;
+
+&lt;/cool-tab&gt;
+                </code>
+            </pre>
+        </article>
+    </section>
+    <h2>
+        Cool Tab Types
+    </h2>
+    <section>
+        
+        <article id="demo4">
+
+            <cool-tab id="tabs_to_change" select="2">
+                <cool-tab-item value="1">
+                    Tab 1
+                </cool-tab-item>
+                <cool-tab-item value="2">
+                    Tab 2
+                </cool-tab-item>
+                <cool-tab-item value="3" frozen>
+                    Tab 3
+                </cool-tab-item>
+                <cool-tab-content value="1">
+                    Cool Content 1
+                </cool-tab-content>
+                <cool-tab-content value="2">
+                    Cool Content 2
+                </cool-tab-content>
+                <cool-tab-content value="3">
+                    Cool Content 3
+                </cool-tab-content>
+            </cool-tab>
+
+            
+        </article>
+        
+            
+        <article>
+            <input type="radio" name="types"  value="plain" checked>
+            <label for="plain">Plain</label>
+            <input type="radio" name="types"value="block">
+            <label for="block">Block</label>
+            <input type="radio" name="types" value="underline">
+            <label for="underline">Underline</label>
+            <p>
+                Select one of the buttons to change the type of the tabs element. 
+            </p>
+        </article>
+        <article>
+            <pre>
+                <code id="code">
+HTML: 
+
+&lt;cool-tab <span>type="plain" select="2"</span>&gt;
+    &lt;cool-tab-item value="1"&gt;
+        Tab 1
+    &lt;/cool-tab-item&gt;
+    &lt;cool-tab-item value="2"&gt;
+        Tab 2
+    &lt;/cool-tab-item&gt;
+    &lt;cool-tab-item value="3" <span>frozen</span>&gt;
+        Tab 3
+    &lt;/cool-tab-item&gt;
+    &lt;cool-tab-content value="1"&gt;
+        Cool Content 1
+    &lt;/cool-tab-content&gt;
+    &lt;cool-tab-content value="2"&gt;
+        Cool Content 2
+    &lt;/cool-tab-content&gt;
+    &lt;cool-tab-content value="3"&gt;
+        Cool Content 3
+    &lt;/cool-tab-content&gt;
+&lt;/cool-tab&gt;
+                </code>
+            </pre>
+        </article>
+    </section>
+    <h2>
+        Using Custom Properties (Changing Background Color)
+    </h2>
+    <section>
+        <article>
+            <cool-tab id="changing" select="1">
+                <cool-tab-item value="1">
+                    Tab 1
+                </cool-tab-item>
+                <cool-tab-item value="2">
+                    Tab 2
+                </cool-tab-item>
+               
+                <cool-tab-content value="1">
+                    Cool Content 1
+                </cool-tab-content>
+                <cool-tab-content value="2">
+                    Cool Content 2
+                </cool-tab-content>
+                
+            </cool-tab>
+        </article>
+        <article>
+
+        </article>
+        <article>
+            <pre>
+                <code>
+HTML:
+
+&lt;cool-tab <span>id="changing"</span> select="1"&gt;
+
+    &lt;cool-tab-item value="1"&gt;
+        Tab 1
+    &lt;/cool-tab-item&gt;
+    &lt;cool-tab-item value="2"&gt;
+        Tab 2
+    &lt;/cool-tab-item&gt;
+    &lt;cool-tab-content value="1"&gt;
+        Cool Content 1
+    &lt;/cool-tab-content&gt;
+    &lt;cool-tab-content value="2"&gt;
+        Cool Content 2
+    &lt;/cool-tab-content&gt;
+
+&lt;/cool-tab&gt;
+
+CSS: 
+
+#changing{
+    <span>--cool-tabs-bg-color: slategray; </span>
+}
+                </code>
+            </pre>
+        </article>
+    </section>
+<h2>
+    Using Parts (Changing Border of Tab Items)
+</h2>
+<section>
+    <article>
+        <cool-tab id="changing_part" select="1">
+            <cool-tab-item value="1">
+                Tab 1
+            </cool-tab-item>
+            <cool-tab-item value="2">
+                Tab 2
+            </cool-tab-item>
+           
+            <cool-tab-content value="1">
+                Cool Content 1
+            </cool-tab-content>
+            <cool-tab-content value="2">
+                Cool Content 2
+            </cool-tab-content>
+            
+        </cool-tab>
+    </article>
+
+    <article>
+
+    </article>
+    <article>
+
+        <pre>
+            <code>
+HTML: 
+
+&lt;cool-tab <span>id="changing_part"</span> select="1"&gt;
+
+    &lt;cool-tab-item value="1"&gt;
+        Tab 1
+    &lt;/cool-tab-item&gt;
+    &lt;cool-tab-item value="2"&gt;
+        Tab 2
+    &lt;/cool-tab-item&gt;
+    &lt;cool-tab-content value="1"&gt;
+        Cool Content 1
+    &lt;/cool-tab-content&gt;
+    &lt;cool-tab-content value="2"&gt;
+        Cool Content 2
+    &lt;/cool-tab-content&gt;
+
+&lt;/cool-tab&gt;
+
+CSS: 
+
+#changing_part <span>::part(tab-item)</span>{
+    <span>border: 2px solid black
+    margin-right: 2px; </span>
+    
+}
+            </code>
+        </pre>
+
+    </article>
+</section>
+    </main>
+
+    <script src="./demo.js"></script>
+</body>
+</html>
+

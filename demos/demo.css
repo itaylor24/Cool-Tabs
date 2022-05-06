@@ -1,0 +1,36 @@
+body{
+    background-color: gray; 
+}
+article{
+    width: 25vw; 
+    margin-left: 10px; 
+    margin-bottom: 30px; 
+    padding: 20px; 
+    border-radius: 10px; 
+    background-color: white; 
+}
+section{
+
+    width: 90vw;  
+    margin: auto; 
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px; 
+}
+p{
+    background-color: white; 
+}
+span{
+    color:red;
+}
+h2{
+    margin-left: 5vw; 
+}
+
+#changing{
+    --cool-tabs-bg-color: slategray; 
+}
+#changing_part ::part(tab-item){
+    border: 2px solid black; 
+    margin-right: 2px; 
+}
